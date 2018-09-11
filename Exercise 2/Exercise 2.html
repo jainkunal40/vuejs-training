@@ -1,0 +1,29 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="index.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="exercise">
+        <p>1. Show an alert when the Button gets clicked </p>
+        <div>
+            <button @click= "greet">Show Alert</button>
+        </div>
+        <p>2. Listen to the "keydown" event and store the value in a data property </p>
+        <div>
+            <input @keydown="storeValue" type="text">
+            <p>{{ value }}</p>
+        </div>
+        <p>3. Adjust the example from 2. to only fire if the "key down" is the ENTER key </p>
+        <div>
+            <input @keydown.enter="storeValue" type="text">
+            <p>{{ value }}</p>
+        </div>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+
+</html>

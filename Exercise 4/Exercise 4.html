@@ -1,0 +1,45 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="index.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+</head>
+
+<body>
+
+    <div id="exercise">
+        <p>1. Start the Effect with the Button.
+            The Effect should alternate the "highlight" or "shrink" class on each new setInterval tick.
+            Attach respective class to the div with id "effect" below </p>
+        <div>
+            <button @click="startEffect">Start Effect</button>
+            <div :class="highlightClass" id="effect"></div>
+        </div>
+        <p>2. Create a couple of CSS classes and attach them via the array syntax </p>
+        <div :class="[activeClass, errorClass]">I need the class!</div>
+        <p>3. Let the user enter a class (create some example classes) and attach it </p>
+        <div>
+            <input @keydown.enter="changeStyleForDiv" type="text">
+            <div :class="newCss"> This Div will have a class which user enters</div>
+        </div>
+        <p>4. Let the user enter a class and attach the classes (space separated) to the div </p>
+        <div>
+            <input @keydown.enter="changeStyleForSecondDiv" type="text">
+            <div :class="newMuiltipleCss">This Div will have multiple classes which user enters space seperated</div>
+        </div>
+        <p>5. Create a simple progress bar with setInterval and style bindings. Start it by hitting the below button.
+        </p>
+        <div>
+            <button class="btn btn-primary" v-on:click="startProgress">Start Progress</button>
+            <div v-show="progress !== 0" class="myclass">
+                <div class=" progress bg-warning" :style="{width: progress + '%'}"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+
+</html>

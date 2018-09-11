@@ -1,0 +1,29 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="index.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="exercise">
+        <p>1. Show a "result" of 'Not There Yet' as long as "value" is not equal to 45 - you can change "value" with the buttons.
+            Print 'Done' once you did it
+        </p>
+        <div>
+            <p>Current Value: {{ value }}</p>
+            <button @click="value += 5">Add 5</button>
+            <button @click="value += 1">Add 1</button>
+            <p>{{ result }}</p>
+        </div>
+        <p>2. Watch for changes in the "result" and reset the "value" after 5 seconds </p>
+        <div>
+            <input type="text">
+            <p>{{ value }}</p>
+        </div>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+
+</html>
