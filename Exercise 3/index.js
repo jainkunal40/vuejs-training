@@ -4,7 +4,7 @@ var app = new Vue({
         value: 0        
     },
     watch: {
-        result: function(value) {
+        value: function(value) {
           var vm = this;
           setTimeout(function() {
             vm.value = 0;
