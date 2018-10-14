@@ -12,7 +12,7 @@
       <div class="row">
         <div class="col-sm-12">
           <div class="alert alert-warning">
-            You cannot add more then 12 To-Do's.
+            You cannot add more then {{maxTodos}} To-Do's.
           </div>
         </div>
       </div>
