@@ -1,7 +1,7 @@
-import { companies } from '../../data/data'
+import { stocks } from '../../data/data'
 import Vue from 'vue'
 const state = {
-  stocks: companies,
+  stocks: stocks,
   fund: 10000,
   myStocks: []
 }
@@ -9,7 +9,8 @@ const state = {
 const changePrice = (price) => {
   let change = Number((Math.random() * 1.900 + 0.100).toFixed(3))
   change = change * (Math.floor(Math.random() * 2) === 1 ? 1 : -1)
-  if ((price += change) < 0) {
+  price = price + change
+  if (price < 0) {
     return 0.01
   }
   return price
@@ -26,27 +27,27 @@ const mutations = {
     state.stocks = payload
   },
 
-  'BUY' (state, {id, quantity, price}) {
-    const stock = state.myStocks.find(element => element.id === id)
+  'BUY' (state, data) {
+    const stock = state.myStocks.find(element => element.id === data.id)
     if (stock) {
-      stock.quantity += quantity
+      stock.quantity += data.quantity
     } else {
       state.myStocks.push({
-        id,
-        quantity
+        id: data.id,
+        quantity: data.quantity
       })
     }
-    state.fund -= quantity * price
+    state.fund -= data.quantity * data.price
   },
 
-  'SELL' (state, {id, quantity, price}) {
-    const stock = state.myStocks.find(element => element.id === id)
-    if (stock.quantity === quantity) {
+  'SELL' (state, data) {
+    const stock = state.myStocks.find(element => element.id === data.id)
+    if (stock.quantity === data.quantity) {
       state.myStocks.splice(state.myStocks.indexOf(stock), 1)
     } else {
-      stock.quantity -= quantity
+      stock.quantity -= data.quantity
     }
-    state.fund += quantity * price
+    state.fund += data.quantity * data.price
   },
 
   'LOAD' (state, payload) {
